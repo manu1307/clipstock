@@ -44,7 +44,7 @@ export default function USStockPage(props) {
 				<input
 					className='text-xl w-full p-2 border-2 border-gray-200 rounded-md focus:border-indigo-300'
 					type='text'
-					placeholder='티커를 입력하세요'
+					placeholder='티커를 입력하세요 (대,소문자 구별 없이)'
 					onChange={handleOnChange}
 					name='ticker'
 					value={inputValue}
