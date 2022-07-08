@@ -15,16 +15,16 @@ export default function Footer() {
 							viewBox='0 0 24 24'>
 							<path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path>
 						</svg>
-						<span className='ml-3 text-xl'>Tailblocks</span>
+						<span className='ml-3 text-xl'>스탁인포</span>
 					</a>
 					<p className='text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4'>
-						© 2020 Tailblocks —
+						© 2022 StockInfo —
 						<a
 							href='https://twitter.com/knyttneve'
 							rel='noopener noreferrer'
 							className='text-gray-600 ml-1'
 							target='_blank'>
-							@knyttneve
+							@jasonsc
 						</a>
 					</p>
 					<span className='inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start'>
@@ -63,7 +63,7 @@ export default function Footer() {
 								<path d='M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01'></path>
 							</svg>
 						</a>
-						<a className='ml-3 text-gray-500'>
+						{/* <a className='ml-3 text-gray-500'>
 							<svg
 								fill='currentColor'
 								stroke='currentColor'
@@ -77,7 +77,7 @@ export default function Footer() {
 									d='M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z'></path>
 								<circle cx='4' cy='4' r='2' stroke='none'></circle>
 							</svg>
-						</a>
+						</a> */}
 					</span>
 				</div>
 			</div>

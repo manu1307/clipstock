@@ -10,7 +10,7 @@ export default function StockPrice(props) {
 
 	return (
 		<div className='leading-relaxed mb-1'>
-			<div className='leading-relaxed flex items-center font-semibold text-3xl mb-1'>
+			<div className='leading-relaxed flex items-center font-semibold text-4xl mb-1'>
 				<Arrow isRising={isRising} />
 				{currentStockPrice} $
 				<div
@@ -32,7 +32,7 @@ export default function StockPrice(props) {
 					</div>
 				</div>
 			</div>
-			<div className='w-3/5 h-1 bg-gray-500 rounded mt-1 mb-4'></div>
+			<div className='xl:w-3/5 w-full h-1 bg-gray-500 rounded mt-1 mb-4'></div>
 		</div>
 	);
 }

@@ -20,13 +20,13 @@ export default function Header() {
 				</a>
 				<nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
 					<Link href='/'>
-						<a className='mr-5 hover:text-gray-900'>홈</a>
+						<a className='mr-5 text-lg hover:text-gray-900'>홈</a>
 					</Link>
 					<Link href='/us-stock'>
-						<a className='mr-5 hover:text-gray-900'>주식</a>
+						<a className='mr-5 text-lg hover:text-gray-900'>주가</a>
 					</Link>
 				</nav>
-				<button className='inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'>
+				{/* <button className='inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'>
 					Button
 					<svg
 						fill='none'
@@ -38,7 +38,7 @@ export default function Header() {
 						viewBox='0 0 24 24'>
 						<path d='M5 12h14M12 5l7 7-7 7'></path>
 					</svg>
-				</button>
+				</button> */}
 			</div>
 		</header>
 	);

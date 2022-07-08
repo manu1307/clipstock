@@ -7,15 +7,24 @@ export default function USStockPage(props) {
 	const QuoteEndpoint = props.initialData["Global Quote"];
 	const startingData = Object.values(QuoteEndpoint);
 	const [firstFetch, setFirstFetch] = useState(true);
-
 	const [data, setData] = useState(props.initialData);
+	const [newsData, setNewsData] = useState();
+
 	const fetchData = async (ticker) => {
 		const req = await fetch(
 			`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${process.env.NEXT_PUBLIC_STOCK_API_KEY}`
 		);
 		const newData = await req.json();
-		console.log(newData["Global Quote"]);
+		// console.log(newData["Global Quote"]);
 		return setData(Object.values(newData["Global Quote"]));
+	};
+
+	const fetchNewsData = async (ticker) => {
+		const req = await fetch(
+			`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=${ticker}&apikey=${process.env.NEXT_PUBLIC_STOCK_API_KEY}`
+		);
+		const newData = await req.json();
+		return setNewsData(newData);
 	};
 
 	let ticker;
@@ -25,12 +34,13 @@ export default function USStockPage(props) {
 		event.preventDefault();
 		ticker = inputValue.toUpperCase();
 		fetchData(ticker);
+		fetchNewsData(ticker);
 		setFirstFetch((prev) => {
 			!prev;
 		});
 		setTimeout(() => {
 			setInputValue("");
-		}, 100);
+		}, 50);
 	}
 	function handleOnChange(event) {
 		setInputValue(event.target.value);
@@ -44,13 +54,20 @@ export default function USStockPage(props) {
 				<input
 					className='text-xl w-full p-2 border-2 border-gray-200 rounded-md focus:border-indigo-300'
 					type='text'
-					placeholder='티커를 입력하세요 (대,소문자 구별 없이)'
+					placeholder='티커를 입력하세요 ex) AAPL(애플)'
 					onChange={handleOnChange}
 					name='ticker'
 					value={inputValue}
 				/>
 			</form>
-			<Content stockData={firstFetch ? startingData : data} />
+			{startingData ? (
+				<Content
+					stockData={firstFetch ? startingData : data}
+					newsData={newsData}
+				/>
+			) : (
+				<div>새로고침해주세요</div>
+			)}
 		</Layout>
 	);
 }

@@ -1,7 +1,7 @@
 export default function Arrow(props) {
 	const { isRising } = props;
 	return (
-		<span className='text-xl mr-2'>
+		<span className='mr-2'>
 			{isRising ? (
 				<svg
 					xmlns='http://www.w3.org/2000/svg'

@@ -1,10 +1,17 @@
 import Image from "next/image";
+import News from "./StockPage/News";
 import StockPrice from "./StockPage/StockPrice";
 import StockPriceDetail from "./StockPage/StockPriceDetail";
 
 export default function Content(props) {
-	const { stockData } = props;
+	const { stockData, newsData } = props;
+
+	console.log(stockData);
 	const isRising = parseFloat(stockData[8]) > 0;
+
+	const newsDataCutted = newsData && newsData.feed.slice(0, 5);
+	console.log(newsDataCutted);
+
 	return (
 		<section className='text-gray-700 body-font'>
 			<div className='container px-5  mx-auto flex flex-col'>
@@ -12,7 +19,7 @@ export default function Content(props) {
 					<div className='flex flex-col sm:flex-row mt-10'>
 						<div className='sm:w-1/3 text-center sm:pr-8 sm:py-8'>
 							<div className='flex flex-col items-center text-center justify-center'>
-								<h2 className='font-black title-font mt-4 text-gray-900 text-5xl'>
+								<h2 className='font-black title-font mt-4 text-gray-900 text-6xl'>
 									{stockData[0]}
 								</h2>
 								<div className='w-12 h-1 bg-indigo-700 rounded mt-4 mb-4'></div>
@@ -42,6 +49,12 @@ export default function Content(props) {
 								secondDetailInfo={Number(stockData[3]).toFixed(2)}
 							/>
 						</div>
+					</div>
+					<div>
+						{newsDataCutted &&
+							newsDataCutted.map((news, index) => {
+								return <News news={news} key={index} />;
+							})}
 					</div>
 				</div>
 			</div>
