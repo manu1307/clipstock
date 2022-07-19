@@ -12,7 +12,7 @@ export default function StockPrice(props) {
 		<div className='leading-relaxed mb-1'>
 			<div className='leading-relaxed flex items-center font-semibold text-4xl mb-1'>
 				<Arrow isRising={isRising} />
-				{currentStockPrice} $
+				{currentStockPrice && currentStockPrice} $
 				<div
 					className={`ml-3 text-lg ${
 						isRising ? "text-red-600" : "text-blue-600"
@@ -22,11 +22,11 @@ export default function StockPrice(props) {
 						<div className='font-bold'>
 							<span className='mr-3'>
 								{isRising && "+"}
-								{stockPriceChangeNum}
+								{stockPriceChangeNum ? stockPriceChangeNum : ""}
 							</span>
 							<span>
 								({isRising && "+"}
-								{stockPriceChangePer}%)
+								{stockPriceChangePer ? stockPriceChangePer : ""}%)
 							</span>
 						</div>
 					</div>
