@@ -8,15 +8,15 @@ export default function Content(props) {
 
 	let contentClasses = stockData ? "" : "invisible";
 
-	if (stockData.length === 0 || (newsData && newsData.length === 0)) {
-		return (
-			<div className='container px-5  mx-auto flex flex-col'>
-				<div className='lg:w-4/6 mx-auto text-md font-bold text-red-600'>
-					올바른 티커를 입력해주세요.
-				</div>
-			</div>
-		);
-	}
+	// if (stockData.length === 0 || (newsData && newsData.length === 0)) {
+	// 	return (
+	// 		<div className='container px-5  mx-auto flex flex-col'>
+	// 			<div className='lg:w-4/6 mx-auto text-md font-bold text-red-600'>
+	// 				올바른 티커를 입력해주세요.
+	// 			</div>
+	// 		</div>
+	// 	);
+	// }
 	console.log(stockData);
 	const isRising = parseFloat(stockData[8]) > 0;
 	const newsDataCutted = newsData ? newsData.feed.slice(0, 5) : [];

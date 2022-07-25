@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Content from "../components/Content";
 import Layout from "../components/Layout/Layout";
+import ErrorMessage from "../components/StockPage/ErrorMessage";
 
 export default function USStockPage(props) {
 	const QuoteEndpoint = props.initialData["Global Quote"];
@@ -8,34 +9,69 @@ export default function USStockPage(props) {
 	const [firstFetch, setFirstFetch] = useState(true);
 	const [data, setData] = useState(props.initialData);
 	const [newsData, setNewsData] = useState();
+	const [fetchLoading, setFetchLoading] = useState(false);
+	const [fetchSuccess, setFetchSuccess] = useState(true);
 	const tickerInput = useRef();
 
 	const fetchData = async (ticker) => {
-		const req = await fetch(
+		setFetchLoading(true);
+		const res = await fetch(
 			`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${ticker}&apikey=${process.env.NEXT_PUBLIC_STOCK_API_KEY}`
 		);
-		const newData = await req.json();
-
+		const newData = await res.json();
+		if (newData["Error Message"]) {
+			setFetchLoading(false);
+			setFetchSuccess(false);
+			return;
+		}
+		setTimeout(() => {
+			setFetchLoading(false);
+			setFetchSuccess(true);
+		}, 100);
+		fetchNewsData();
 		return setData(Object.values(newData["Global Quote"]));
 	};
 
 	const fetchNewsData = async (ticker) => {
-		const req = await fetch(
+		const res = await fetch(
 			`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=${ticker}&apikey=${process.env.NEXT_PUBLIC_STOCK_API_KEY}`
 		);
 
-		const newData = await req.json();
+		const newData = await res.json();
 
+		if (newData["Information"]) {
+			setFetchLoading(false);
+			setFetchSuccess(false);
+			console.log("fetch fail");
+			return;
+		}
+		console.log("fetch success");
+
+		setFetchLoading(false);
+		setFetchSuccess(true);
 		return setNewsData(newData);
+	};
+
+	const checkValidInput = (value) => {
+		if (value.trim().length === 0) {
+			alert("티커를 입력해주세요.");
+			return false;
+		} else if (!/^[a-zA-Z]+$/.test(value)) {
+			alert("올바른 티커를 입력해주세요.");
+			return false;
+		}
 	};
 
 	function handleOnSubmit(event) {
 		event.preventDefault();
 
-		let ticker;
-		ticker = tickerInput.current.value.toUpperCase();
+		if (checkValidInput(tickerInput.current.value)) {
+			return;
+		}
+
+		const ticker = tickerInput.current.value.toUpperCase();
 		fetchData(ticker);
-		fetchNewsData(ticker);
+
 		setFirstFetch((prev) => {
 			!prev;
 		});
@@ -55,16 +91,20 @@ export default function USStockPage(props) {
 					ref={tickerInput}
 				/>
 			</form>
-
-			<Content
-				stockData={firstFetch ? startingData : data}
-				newsData={newsData}
-			/>
+			{!fetchLoading && fetchSuccess && (
+				<Content
+					stockData={firstFetch ? startingData : data}
+					newsData={newsData}
+				/>
+			)}
+			{!fetchLoading && !fetchSuccess && (
+				<ErrorMessage errorType='no company found'></ErrorMessage>
+			)}
 		</Layout>
 	);
 }
 
-USStockPage.getInitialProps = async (ctx) => {
+USStockPage.getInitialProps = async () => {
 	const res = await fetch(
 		`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=SPY&apikey=${process.env.NEXT_PUBLIC_STOCK_API_KEY}`
 	);
