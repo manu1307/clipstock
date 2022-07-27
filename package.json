@@ -13,7 +13,9 @@
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-lottie-player": "^1.4.3"
+    "react-helmet": "^6.1.0",
+    "react-lottie-player": "^1.4.3",
+    "sharethis-reactjs": "^1.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
