@@ -1,7 +1,7 @@
 import Link from "next/dist/client/link";
 
 const sendText = "한국형 미국주식 주가조회 - 클립스탁";
-const sendUrl = "https://us-stock-info-applicaiton.vercel.app/";
+const sendUrl = "https://clipstock.vercel.app/";
 
 const shareData = {
 	title: "미국주식 주가 조회",
@@ -49,7 +49,7 @@ export default function Footer() {
 					<span className='inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-center'>
 						<span className='hidden md:inline-flex '>
 							<Link
-								href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fus-stock-info-applicaiton.vercel.app`}>
+								href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fclipstock.vercel.app`}>
 								<a
 									className='text-gray-500 cursor-pointer opacity-75 hover:opacity-100'
 									target='_blank'

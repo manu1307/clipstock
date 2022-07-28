@@ -8,7 +8,7 @@ export default function ErrorMessage(props) {
 
 	return (
 		<div className='container lg:w-full px-5 pt-5 mx-auto flex'>
-			<p className='text-xl lg:w-4/6 mx-auto w-full text-red-500 font-semibold'>
+			<p className='text-sm lg:w-4/6 mx-auto w-full text-red-500 md:font-semibold md:text-xl  '>
 				{errorMessageContent}
 			</p>
 		</div>
