@@ -3,7 +3,7 @@
 ### https://clipstock.vercel.app/
 
 ## 간단하고 쉽게 '한국식으로' 미국주식 주가 조회하자
-
+![demo](https://user-images.githubusercontent.com/66587876/181443593-085a5673-dfae-4508-a523-167640678342.gif)
 입력 창에 찾고 싶은 기업의 티커를 입력하면 <br/>
 어제 마감 상황과 관련 현지뉴스가 딱!
 
