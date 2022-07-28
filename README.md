@@ -1,6 +1,6 @@
-##한국형 미국주식 주가조회 서비스 - 클립스탁
+## 한국형 미국주식 주가조회 서비스 - 클립스탁
 
-###https://clipstock.vercel.app/
+### https://clipstock.vercel.app/
 
 ## 간단하고 쉽게 미국주식 주가 조회하자
 
