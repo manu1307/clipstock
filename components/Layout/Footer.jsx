@@ -1,7 +1,3 @@
-import { InlineReactionButtons } from "sharethis-reactjs";
-import { InlineShareButtons } from "sharethis-reactjs";
-import { StickyShareButtons } from "sharethis-reactjs";
-import { InlineFollowButtons } from "sharethis-reactjs";
 import Link from "next/dist/client/link";
 
 const sendText = "한국형 미국주식 주가조회 - 클립스탁";
@@ -9,7 +5,6 @@ const sendUrl = "https://us-stock-info-applicaiton.vercel.app/";
 
 const shareData = {
 	title: "미국주식 주가 조회",
-	text: sendText,
 	url: sendUrl,
 };
 
@@ -51,51 +46,54 @@ export default function Footer() {
 							@jasonsc
 						</a>
 					</p>
-					<span className='inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start'>
+					<span className='inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-center'>
+						<span className='hidden md:inline-flex '>
+							<Link
+								href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fus-stock-info-applicaiton.vercel.app`}>
+								<a
+									className='text-gray-500 cursor-pointer opacity-75 hover:opacity-100'
+									target='_blank'
+									rel='noreferrer'>
+									<svg
+										fill='currentColor'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
+										className='w-8 h-8'
+										viewBox='0 0 24 24'>
+										<path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
+									</svg>
+								</a>
+							</Link>
+							<Link
+								href={`https://twitter.com/intent/tweet?text=${sendText}&url=${sendUrl}`}>
+								<a
+									className='ml-3 text-gray-500 cursor-pointer opacity-75 hover:opacity-100'
+									target='_blank'>
+									<svg
+										fill='currentColor'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
+										className='w-8 h-8 '
+										viewBox='0 0 24 24'>
+										<path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
+									</svg>
+								</a>
+							</Link>
+						</span>
+
 						<a
-							className='text-gray-500 cursor-pointer'
-							href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fus-stock-info-applicaiton.vercel.app`}
-							target='_blank'
-							rel='noreferrer'>
+							className='flex cursor-pointer visible md:invisible ml-auto sm:ml-0  bg-slate-300 p-2 rounded-md'
+							onClick={shareLink}>
+							Share
 							<svg
-								fill='currentColor'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth='2'
-								className='w-5 h-5'
-								viewBox='0 0 24 24'>
-								<path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
+								xmlns='http://www.w3.org/2000/svg'
+								className='h-5 w-5'
+								viewBox='0 0 20 20'
+								fill='currentColor'>
+								<path d='M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z' />
 							</svg>
-						</a>
-						<Link
-							href={`https://twitter.com/intent/tweet?text=${sendText}&url=${sendUrl}`}>
-							<a className='ml-3 text-gray-500 cursor-pointer' target='_blank'>
-								<svg
-									fill='currentColor'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth='2'
-									className='w-5 h-5'
-									viewBox='0 0 24 24'>
-									<path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
-								</svg>
-							</a>
-						</Link>
-						<a className='ml-3 text-gray-500'>
-							<svg
-								fill='none'
-								stroke='currentColor'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth='2'
-								className='w-5 h-5'
-								viewBox='0 0 24 24'>
-								<rect width='20' height='20' x='2' y='2' rx='5' ry='5'></rect>
-								<path d='M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01'></path>
-							</svg>
-						</a>
-						<a className='cursor-pointer' onClick={shareLink}>
-							공유
 						</a>
 					</span>
 				</div>
