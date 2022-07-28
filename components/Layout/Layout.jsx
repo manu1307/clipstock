@@ -10,10 +10,6 @@ export default function Layout(props) {
 				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				<meta property='og:title' content='클립스탁' />
 				<meta property='og:url' content='clipstock.vercel.app' />
-				<meta
-					property='og:image'
-					content='https://github.com/manu1307/clipstock/blob/main/public/clip-icon.png'
-				/>
 				<meta property='og:description' content='한국형 미국주식 주가조회' />
 				<link
 					rel='shortcut icon'
