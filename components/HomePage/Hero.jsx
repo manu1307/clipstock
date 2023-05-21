@@ -17,7 +17,7 @@ export default function Hero() {
 					<p className='mb-8 leading-relaxed'>
 						<br />
 						<span className='font-sans text-xl'>
-							우리에게 제일 중요한 바로{" "}
+							우리에게 제일 중요한 것은 바로{" "}
 						</span>
 						<span className='font-sans font-bold sm:text-4xl text-3xl text-gray-900'>
 							주가
